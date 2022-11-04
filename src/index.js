@@ -6,6 +6,7 @@ import {
   Route,
  } from "react-router-dom";
 import Expenses from "./routes/expenses"
+import Expense from "./routes/expense"
 import Invoices from "./routes/invoices"
 import Invoice from "./routes/invoice"
 
@@ -16,7 +17,17 @@ root.render(
       {/* nest route */}
       <Route path="/" element={<App />} >
         {/* add expenses component */}
-        <Route path="expenses" element={<Expenses />} />
+        <Route path="expenses" element={<Expenses />} >
+          <Route
+            index
+            element={
+              <main style={{ padding: "1rem"}}>
+                <p>Select an expense</p>
+              </main>
+            }
+          />
+          <Route path=":expenseId" element={<Expense />} />
+        </Route>
         {/* add invoices component */}
         <Route path="invoices" element={<Invoices />} >
           <Route
