@@ -37,6 +37,6 @@ return expenses;
 
 export function getExpense(number) {
     return expenses.find(
-        (expense) => expenses.number === number
+        (expense) => expense.number === number
     );
 }
